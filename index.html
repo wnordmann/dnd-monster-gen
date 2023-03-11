@@ -1,0 +1,24 @@
+<html>
+    <h1>Monster Generator</h1>
+    <label for="monster">Monster name:</label>
+    <input type="text" id="monsterInput" name="monster"><br><br>
+    <button onclick="sendData()">Generate</button>
+    <p id="output"></p>
+
+    <script>
+        function sendData() {
+          const input = encodeURIComponent(document.getElementById('monsterInput').value);
+  
+          fetch(`http://127.0.0.1:5000/description/${input}`, {
+            method: 'GET',
+          })
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('output').textContent = data;
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        }
+      </script>
+</html>
