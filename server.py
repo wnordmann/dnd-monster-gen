@@ -1,16 +1,20 @@
 import openai
-import os
 from dotenv import load_dotenv
-from flask import Flask, jsonify
+import os
+from flask import Flask, jsonify, render_template
 app = Flask(__name__)
 load_dotenv()
 
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
 @app.route('/description/<monster>')
 def description(monster):
-    # apikey = os.getenv('DATABASE_URL')
-
-    # openai.api_key = apikey
-    openai.api_key_path = '.env'
+    apikey = os.getenv('API')
+    openai.api_key = apikey
     response = openai.Completion.create(
         model="text-curie-001",
         prompt="Write a description for a the dnd monster \"" + monster + "\"",
