@@ -127,3 +127,20 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Node.js dependencies
+/node_modules
+
+# Vite build output
+/dist
+
+# Log files
+*.log
+
+# Environment variables
+.env
+
+# IDE specific files
+.vscode
+.idea
+*.iml
