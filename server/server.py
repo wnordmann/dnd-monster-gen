@@ -10,14 +10,6 @@ load_dotenv()
 CORS(app)
 
 
-# def lowercase_keys(obj):
-#     if isinstance(obj, dict):
-#         return {k.lower().replace('_', '').replace(' ', ''): lowercase_keys(v) for k, v in obj.items()}
-#     if isinstance(obj, list):
-#         return [lowercase_keys(item) for item in obj]
-#     return obj
-
-
 @app.route('/description/<monster>')
 def description(monster):
     apikey = os.getenv('API')
@@ -93,7 +85,6 @@ def stats(monster):
         ]
     }
     """
-    print(prompt)
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=prompt,
@@ -103,7 +94,7 @@ def stats(monster):
         frequency_penalty=0,
         presence_penalty=0
     )
-    print(response)
+    print(response.usage)
     print(response.choices[0].text)
     data = json.loads(response.choices[0].text)
     return jsonify(data)

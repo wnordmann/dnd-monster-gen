@@ -4,6 +4,7 @@ import './style.css';
 import {formatAttributeStat, challangeRatingToXP} from './statBlockUtil';
 import Actions from '../actions/actions';
 import Properties from '../properties/properties';
+import SplitLine from '../splitLine/splitLine';
 function StatBlock(props) {
     const stats = props.stats;
     return (
@@ -26,10 +27,13 @@ function StatBlock(props) {
                         stats.alignment
                     }</h2>
                 </div>
-                <svg height="5" width="100%" className="tapered-rule">
-                    <polyline points="0,0 400,2.5 0,5"></polyline>
-                </svg>
             </div>
+            <SplitLine/>
+            <div className='description'>
+                {
+                props.description
+            } </div>
+            <SplitLine/>
             <div className="top-stats">
                 <div className="property-line first">
                     <h4>Armor Class:
@@ -58,9 +62,7 @@ function StatBlock(props) {
                         stats.speed
                     }</span>
                 </div>
-                <svg height="5" width="100%" className="tapered-rule">
-                    <polyline points="0,0 400,2.5 0,5"></polyline>
-                </svg>
+                <SplitLine/>
                 <div className="abilities">
                     <div className="ability-strength">
                         <h4>STR</h4>
@@ -99,9 +101,7 @@ function StatBlock(props) {
                         }</span>
                     </div>
                 </div>
-                <svg height="5" width="100%" className="tapered-rule">
-                    <polyline points="0,0 400,2.5 0,5"></polyline>
-                </svg>
+                <SplitLine/>
                 <div className="property-line first">
                     <h4>Saving Throws:
                     </h4>
@@ -152,9 +152,7 @@ function StatBlock(props) {
                     }</span>
                 </div>
             </div>
-            <svg height="5" width="100%" className="tapered-rule">
-                <polyline points="0,0 400,2.5 0,5"></polyline>
-            </svg>
+            <SplitLine/>
             <div className="property-block">
                 <div className="properties">
                     <Properties properties={

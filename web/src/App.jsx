@@ -45,8 +45,6 @@ function App() {
 
         try {
             const [description, stats] = await Promise.all([fetchAPI(urlDescription), fetchAPI(urlStat)]);
-            console.log('Data 1:', description);
-            console.log('Data 2:', stats);
             setMonsterDescription(description);
             setMonsterStats(stats);
 
@@ -57,7 +55,7 @@ function App() {
 
     return (
         <div className="App">
-            <h1>Monster Generator</h1>
+            <h1>DND Monster Generator</h1>
 
             <VStack spacing={4}>
                 <Input value={monsterPrompt}
@@ -71,15 +69,10 @@ function App() {
                 loading ? (
                     <Spinner size="xl"/>
                 ) : (
-                    <>
-                        <Box borderWidth="1px" borderRadius="lg" p="4" width="100%">
-                            <Text>{monsterPrompt}&nbsp;Description:</Text>
-                            <Text>{monsterDescription}</Text>
-                        </Box>
-                        <Box borderWidth="1px" borderRadius="lg" p="4" width="100%">
-                            <StatBlock stats={monsterStats}/>
-                        </Box>
-                    </>
+                    <Box borderWidth="1px" borderRadius="lg" p="4" width="100%">
+                        <StatBlock stats={monsterStats}
+                            description={monsterDescription}/>
+                    </Box>
                 )
             } </VStack>
         </div>
