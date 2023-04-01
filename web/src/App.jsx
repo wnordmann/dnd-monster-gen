@@ -10,12 +10,13 @@ import {
     VStack
 } from '@chakra-ui/react';
 import './App.css'
+import StatBlock from './componenets/statblock/statBlock';
 
 function App() {
     const [loading, setLoading] = useState(false);
     const [monsterPrompt, setMoneterPrompt] = useState('')
     const [monsterDescription, setMonsterDescription] = useState('')
-    const [monsterStats, setMonsterStats] = useState('')
+    const [monsterStats, setMonsterStats] = useState({})
 
     const handleMPInputChange = (event) => {
         setMoneterPrompt(event.target.value);
@@ -76,8 +77,7 @@ function App() {
                             <Text>{monsterDescription}</Text>
                         </Box>
                         <Box borderWidth="1px" borderRadius="lg" p="4" width="100%">
-                            <Text>{monsterPrompt}&nbsp;Stats:</Text>
-                            <Code>{monsterStats}</Code>
+                            <StatBlock stats={monsterStats}/>
                         </Box>
                     </>
                 )
