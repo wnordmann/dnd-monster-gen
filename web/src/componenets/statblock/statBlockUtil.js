@@ -15,7 +15,7 @@ function formatAttributeStat(attributeValue) {
     }${modifier})`;
 }
 
-function challangeRatingToXP(challangeRating) { 
+function challangeRatingToXP(challangeRating) {
     const regex = /\(\d+ XP\)/; // Sometimes the AI include the XP and this needs to be skipped
     if (regex.test(challangeRating)) {
         return "";

@@ -177,7 +177,23 @@ body {
   .actions:last-child{
     margin: 0;
   }
-  
+  .properties h3{
+    border-bottom: 1px solid #7A200D;
+    color: #7A200D;
+    font-size: 21px;
+    font-variant: small-caps;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 20px 0 0;
+    padding: 0 0 10px;
+    text-indent: 5px;
+  }
+  .properties{
+    margin: 0 0 20px;
+  }
+  .properties:last-child{
+    margin: 0;
+  }
   @media print{
       .orange-border{
           display: none;
